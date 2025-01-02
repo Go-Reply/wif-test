@@ -1,0 +1,39 @@
+name: Project Factory - Create Project
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'factory/request/**.yaml'
+      
+permissions:
+  contents: read
+  id-token: write
+      
+# env:
+#   TF_SA_MAIN: ${{ vars.TF_SA_MAIN }}
+#   GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+#   GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+#   PYTHON_VERSION: '3.10'
+
+jobs: 
+  deploy_terraform:
+    #Authenticate to GCP
+    - id: auth
+      name: Authenticate to GCP
+      uses: google-github-actions/auth@v1
+      with:
+        workload_identity_provider: 'projects/1066262700507/locations/global/workloadIdentityPools/github/providers/my-repo'
+        service_account: 'iac-project@dft-iac-playgrnd-tf-state-test.iam.gserviceaccount.com'
+
+    - name: Install Terraform 
+      uses: hashicorp/setup-terraform@v3
+
+    - name: Terraform Init
+      run: |
+        cd project/create
+        terraform init -input=false
+
+
+    
