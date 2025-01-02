@@ -32,6 +32,11 @@ variable "pool_description" {
   default = "Identity pool for Github Deployments"
 }
 
+variable "github_org" {
+  type    = string
+  default = "Go-Reply"
+}
+
 /******************************************
   Provider Variables
 *******************************************/

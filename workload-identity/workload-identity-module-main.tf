@@ -15,6 +15,7 @@ resource "google_iam_workload_identity_pool_provider" "main" {
   workload_identity_pool_id          = google_iam_workload_identity_pool.main.workload_identity_pool_id
   workload_identity_pool_provider_id = var.provider_id
   attribute_mapping                  = var.provider_attribute_mapping
+  attribute_condition                = "assertion.repository_owner==\"${var.github_org}\""
   oidc {
     issuer_uri = var.provider_issuer_uri
   }
