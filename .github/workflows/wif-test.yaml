@@ -19,9 +19,11 @@ permissions:
 
 jobs: 
   deploy_terraform:
-    #Authenticate to GCP
+    runs-on: ubuntu-latest
+    steps:
     - id: auth
       name: Authenticate to GCP
+      
       uses: google-github-actions/auth@v1
       with:
         workload_identity_provider: 'projects/970684041797/locations/global/workloadIdentityPools/github-pool2/providers/github-provider2'
