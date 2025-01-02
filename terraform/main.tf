@@ -3,7 +3,8 @@
 #################################################################################
 
 module "workload-identity-module" {
-    source              = "../modules/workload-identity-module"    project_id          = var.project_id
+    source              = "../modules/workload-identity-module"    
+    project_id          = var.project_id
     pool_id             = "github-pool2"
     pool_display_name   = "GitHub Pool 2"
 
