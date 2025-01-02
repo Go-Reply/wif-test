@@ -5,7 +5,7 @@ on:
     branches:
       - 'main'
     paths:
-      - 'factory/request/**.yaml'
+      - 'request/**'
       
 permissions:
   contents: read
@@ -24,8 +24,8 @@ jobs:
       name: Authenticate to GCP
       uses: google-github-actions/auth@v1
       with:
-        workload_identity_provider: 'projects/1066262700507/locations/global/workloadIdentityPools/github/providers/my-repo'
-        service_account: 'iac-project@dft-iac-playgrnd-tf-state-test.iam.gserviceaccount.com'
+        workload_identity_provider: 'projects/970684041797/locations/global/workloadIdentityPools/github-pool2/providers/github-provider2'
+        service_account: 'dft-sa-test-je1@go-reply-sandbox.iam.gserviceaccount.com'
 
     - name: Install Terraform 
       uses: hashicorp/setup-terraform@v3
