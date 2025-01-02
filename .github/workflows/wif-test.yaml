@@ -34,7 +34,7 @@ jobs:
 
     - name: Terraform Init
       run: |
-        cd project/create
+        cd terraform/
         terraform init -input=false
 
 
