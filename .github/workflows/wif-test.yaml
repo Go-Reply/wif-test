@@ -32,6 +32,12 @@ jobs:
     - name: Install Terraform 
       uses: hashicorp/setup-terraform@v3
 
+    - name: Checkout Repo
+      uses: actions/checkout@v4
+      with:
+        ref: main
+        fetch-depth: 0
+
     - name: Terraform Init
       run: |
         cd terraform/
