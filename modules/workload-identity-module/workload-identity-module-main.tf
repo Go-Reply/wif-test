@@ -35,7 +35,7 @@ resource "google_service_account" "main" {
 resource "google_service_account_iam_member" "main" {
   service_account_id = google_service_account.main.name
   role               = "roles/iam.workloadIdentityUser"
-  member             = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.main.name}/attribute.repository/${var.github_repo}"
+  member             = "principalSet://iam.googleapis.com/projects/970684041797/locations/global/workloadIdentityPools/github-pool2/attribute.repository/Go-Reply/wif-test"
 }
 
 resource "google_project_iam_member" "main" {
