@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = "dft-iac-playground-tfstate" # Replace with your bucket name
-    prefix = "create/"
+    bucket = "tf-state-for-go-reply-sandbox" # Replace with your bucket name
+    prefix = "workload-identity-testing/"
   }
 }
