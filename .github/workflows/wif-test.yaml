@@ -38,6 +38,10 @@ jobs:
         workload_identity_provider: 'projects/970684041797/locations/global/workloadIdentityPools/github-pool2/providers/github-provider2'
         service_account: 'dft-sa-test-je1@go-reply-sandbox.iam.gserviceaccount.com'
 
+    - name: Test Google Cloud Authentication
+      run: gcloud storage ls --recursive gs://tf-state-for-go-reply-sandbox/
+        
+
     - name: Terraform Init
       run: |
         cd terraform/
